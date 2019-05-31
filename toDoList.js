@@ -44,11 +44,11 @@ function writeToDo(text) {
   li.appendChild(delBtn);
   li.id = newId;
   toDoList.appendChild(li);
-  const toDoobj = {
+  const toDoObj = {
     text,
     id: newId
   };
-  toDos.push(toDoobj);
+  toDos.push(toDoObj);
   saveToDos();
 }
 
