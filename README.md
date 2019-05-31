@@ -1,1 +1,3 @@
 # toDoJS
+
+Study JavaScript!!

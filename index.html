@@ -4,16 +4,50 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>ToDo App - V3</title>
   </head>
   <body>
-    <h1>Welcome to ToDo App</h1>
+    <div class="app">
+      <header>
+        <h1>ToDo App</h1>
+        <p>Write a to do</p>
+      </header>
+      <div class="toDoTable">
+        <form action="" class="js-toDoListForm">
+          <input type="text" placeholder="Write to do list" />
+        </form>
+        <ul class="js-toDoList"></ul>
+      </div>
+      <div class="visual"></div>
+      <div class="pads">
+        <div class="pad1">
+          <audio class="sound" src="./sounds/01.flac"></audio>
+        </div>
+        <div class="pad2">
+          <audio class="sound" src="./sounds/02.flac"></audio>
+        </div>
+        <div class="pad3">
+          <audio class="sound" src="./sounds/03.flac"></audio>
+        </div>
+        <div class="pad4">
+          <audio class="sound" src="./sounds/04.flac"></audio>
+        </div>
+        <div class="pad5">
+          <audio class="sound" src="./sounds/05.flac"></audio>
+        </div>
+        <div class="pad6">
+          <audio class="sound" src="./sounds/06.flac"></audio>
+        </div>
+      </div>
+    </div>
 
-    <form action="" class="js-toDoListForm">
-      <input type="text" placeholder="Write to do list" />
-    </form>
-    <ul class="js-toDoList"></ul>
-
-    <script src="./toDoList.js"></script>
+    <script src="js/music.js"></script>
+    <script src="js/toDoList.js"></script>
   </body>
 </html>
