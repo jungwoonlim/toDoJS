@@ -2,14 +2,14 @@ const toDoForm = document.querySelector(".toDoForm");
 const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.querySelector(".toDoList");
 
-const toDosLS = `toDos`;
+const toDosLS = "toDos";
 let toDos = [];
 
 const saveToDos = () => {
   localStorage.setItem(toDosLS, JSON.stringify(toDos));
 };
 
-const deleteToDo = event => {
+const deleteToDos = event => {
   const btn = event.target;
   const li = btn.parentNode;
   toDoList.removeChild(li);
@@ -22,21 +22,20 @@ const deleteToDo = event => {
 };
 
 const paintToDo = text => {
-  // write toDos
-  const li = document.createElement(`li`);
-  const span = document.createElement(`span`);
-  const delBtn = document.createElement(`button`);
-
+  const li = document.createElement("li");
+  const span = document.createElement("span");
+  const delBtn = document.createElement("button");
   const newId = toDos.length + 1;
 
   span.innerHTML = text;
-  delBtn.innerHTML = `❌`;
-  delBtn.addEventListener(`click`, deleteToDo);
+  delBtn.innerHTML = "❌";
+  delBtn.addEventListener("click", deleteToDos);
 
+  li.id = newId;
   li.appendChild(span);
   li.appendChild(delBtn);
-  li.id = newId;
   toDoList.appendChild(li);
+
   const toDoObj = {
     text,
     id: newId
@@ -46,9 +45,9 @@ const paintToDo = text => {
 };
 
 const loadToDos = () => {
-  const loadToDos = localStorage.getItem(toDosLS);
-  if (loadToDos !== null) {
-    const parseToDos = JSON.parse(loadToDos);
+  const loadToDo = localStorage.getItem(toDosLS);
+  if (loadToDo !== null) {
+    const parseToDos = JSON.parse(loadToDo);
     parseToDos.forEach(toDo => {
       paintToDo(toDo.text);
     });
@@ -57,14 +56,13 @@ const loadToDos = () => {
 
 const handleSubmit = event => {
   event.preventDefault();
-  const currnetValue = toDoInput.value;
-  paintToDo(currnetValue);
+  const currentValue = toDoInput.value;
+  paintToDo(currentValue);
   toDoInput.value = "";
 };
 
 const init = () => {
   loadToDos();
-  document.addEventListener(`submit`, handleSubmit);
+  toDoForm.addEventListener("submit", handleSubmit);
 };
-
 init();
