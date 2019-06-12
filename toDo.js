@@ -21,19 +21,31 @@ const deleteToDos = event => {
   saveToDos();
 };
 
+const checkToDos = event => {
+  const checkBox = event.target;
+  const li = checkBox.parentNode;
+  // console.log(li.childNodes[1]);
+  const span = li.childNodes[1];
+  clearToDo(span);
+  // clearInit();
+};
+
 const paintToDo = text => {
+  const checkBox = document.createElement("input");
   const li = document.createElement("li");
   const span = document.createElement("span");
-  const delBtn = document.createElement("button");
   const newId = toDos.length + 1;
 
+  checkBox.setAttribute("type", "checkbox");
+  checkBox.addEventListener("click", checkToDos);
   span.innerHTML = text;
-  delBtn.innerHTML = "❌";
-  delBtn.addEventListener("click", deleteToDos);
+  // delBtn.innerHTML = "❌";
+  // delBtn.addEventListener("click", deleteToDos);
 
   li.id = newId;
+  li.appendChild(checkBox);
   li.appendChild(span);
-  li.appendChild(delBtn);
+  // li.appendChild(delBtn);
   toDoList.appendChild(li);
 
   const toDoObj = {
